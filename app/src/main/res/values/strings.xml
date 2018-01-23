@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="loading">loading</string>
+    <string name="today">今天</string>
+    <string name="weekly">星期</string>
+    <string name="favorite">最爱</string>
+    <string name="getLocation">获取经纬度</string>
+    <string name="location_init">定位初始化</string>
+    <string name="beijing">北京</string>
+    <string name="temperature_unit">℃</string>
+</resources>

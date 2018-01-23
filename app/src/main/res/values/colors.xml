@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2B9882</color>
+    <color name="colorPrimaryDark">#218571</color>
+    <!--<color name="colorAccent">#FFEB3B</color>-->
+    <color name="colorAccent">#00BCD4</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="whiteColor">#FFFFFFFF</color>
+    <color name="whiteHintColor">#88FFFFFF</color>
+
+
+
+
+
+    <color name="blackHintColor">#88000000</color>
+    <color name="blackTextColor">#FF000000</color>
+    <color name="whiteTextColor">#FFFFFFFF</color>
+    <color name="card_normal">#19000000</color>
+    <color name="tabLayout_bg">#07000000</color>
+
+    <color name="payBtnColor">#33000000</color>
+
+
+    <color name="expandable_item_indicator_color">#42000000</color>
+
+    <color name="fullColor">#FF000000</color>
+    <color name="list_margin_color">#E8E8E8</color>
+</resources>
