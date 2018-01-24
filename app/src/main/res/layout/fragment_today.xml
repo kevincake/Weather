@@ -6,157 +6,32 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <android.support.constraint.ConstraintLayout
+    <com.ifreedomer.weather.widget.WeatherHeader
         android:id="@+id/topTemperatureLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/weatherIv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/bg_cloudy"/>
-
-
-        <TextView
-            android:id="@+id/addressTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp20"
-            android:text="Rejika , Croatia"
-            android:textColor="@color/whiteColor"
-            android:textSize="@dimen/sp20"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"/>
-
-        <TextView
-            android:id="@+id/dateTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp5"
-            android:alpha="0.8"
-            android:text="Saturday , 18 , March"
-            android:textColor="@color/whiteColor"
-            android:textSize="@dimen/sp20"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/addressTv"/>
-
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp30"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dateTv"
-            >
-
-            <TextView
-                android:id="@+id/temperatureTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="16"
-                android:textColor="@color/whiteColor"
-                android:textSize="@dimen/sp70"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                />
-
-
-
-
-            <ImageView
-                android:background="@mipmap/white_cloudy"
-                android:layout_marginLeft="@dimen/dp40"
-                app:layout_constraintTop_toTopOf="@+id/temperatureTv"
-                app:layout_constraintBottom_toBottomOf="@+id/temperatureTv"
-                android:layout_width="@dimen/dp30"
-                android:layout_height="@dimen/dp30"
-                android:layout_marginTop="@dimen/sp10"
-                android:text="@string/temperature_unit"
-                app:layout_constraintLeft_toRightOf="@id/temperatureTv"
-                />
-
-
-
-            <TextView
-                android:id="@+id/unitTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/sp10"
-                android:text="@string/temperature_unit"
-                android:textColor="@color/whiteColor"
-                android:textSize="@dimen/sp20"
-                app:layout_constraintLeft_toRightOf="@id/temperatureTv"
-                app:layout_constraintTop_toTopOf="@id/temperatureTv"
-                />
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_marginTop="@dimen/dp15"
-                android:layout_width="wrap_content"
-                android:layout_marginRight="@dimen/dp20"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/temperatureTv"
-                app:layout_constraintRight_toLeftOf="@id/temperatureTv"
-                app:layout_constraintTop_toTopOf="@id/temperatureTv"
-                >
-
-
-
-
-                <TextView
-                    android:id="@+id/topTemperatureTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/dp20"
-                    android:text="17 °"
-                    android:textColor="@color/whiteColor"
-                    android:textSize="@dimen/sp15"
-                    android:drawablePadding="@dimen/dp10"
-                    android:drawableLeft="@mipmap/top_arrow"
-                    />
-
-                <TextView
-                    android:drawableLeft="@mipmap/bottom_arrow"
-                    app:layout_constraintTop_toBottomOf="@id/topTemperatureTv"
-                    android:id="@+id/lowTemeratureTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/dp20"
-                    android:layout_marginTop="@dimen/sp5"
-                    android:text="4 °"
-                    android:drawablePadding="@dimen/dp10"
-                    android:textColor="@color/whiteColor"
-                    android:textSize="@dimen/sp15"
-                    />
-
-            </android.support.constraint.ConstraintLayout>
-
-
-        </android.support.constraint.ConstraintLayout>
-
-
-    </android.support.constraint.ConstraintLayout>
+        android:layout_height="wrap_content"/>
 
     <android.support.v7.widget.RecyclerView
-        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
         android:id="@+id/hourWeatherRv"
         app:layout_constraintTop_toBottomOf="@id/topTemperatureLayout"
-        android:layout_width="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_height="@dimen/dp100">
+        android:layout_height="@dimen/dp80"
+        android:layout_marginTop="@dimen/dp20">
     </android.support.v7.widget.RecyclerView>
+
+    <include
+        android:id="@+id/divider"
+        layout="@layout/divider"
+        android:layout_width="0dp"
+        android:layout_height="1.2dp"
+        app:layout_constraintTop_toBottomOf="@id/hourWeatherRv"
+        />
 
 
     <android.support.v7.widget.RecyclerView
-        app:layout_constraintTop_toBottomOf="@id/hourWeatherRv"
+        android:id="@+id/weatherDetailRv"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/otherInfoRv"
+        app:layout_constraintTop_toBottomOf="@id/divider"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="0dp"

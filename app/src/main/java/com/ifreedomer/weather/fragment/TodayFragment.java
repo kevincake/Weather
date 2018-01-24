@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,9 @@ import android.widget.TextView;
 
 import com.ifreedomer.weather.R;
 import com.ifreedomer.weather.adapter.HourAdapter;
+import com.ifreedomer.weather.adapter.WeatherDetailAdapter;
 import com.ifreedomer.weather.bean.HourWeatherInfo;
+import com.ifreedomer.weather.bean.WeatherDetailItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +50,8 @@ public class TodayFragment extends Fragment {
     ConstraintLayout topTemperatureLayout;
     @BindView(R.id.hourWeatherRv)
     RecyclerView hourWeatherRv;
-    @BindView(R.id.otherInfoRv)
-    RecyclerView otherInfoRv;
+    @BindView(R.id.weatherDetailRv)
+    RecyclerView weatherDetailRv;
     Unbinder unbinder;
 
     @Nullable
@@ -61,19 +64,32 @@ public class TodayFragment extends Fragment {
     }
 
     private void initLogic() {
-        hourWeatherRv.setLayoutManager(new GridLayoutManager(getActivity(), 5));
         List<HourWeatherInfo> hourWeatherInfos = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             hourWeatherInfos.add(new HourWeatherInfo());
         }
         HourAdapter hourAdapter = new HourAdapter(getActivity(), R.layout.item_hour_weather, hourWeatherInfos);
         hourWeatherRv.setAdapter(hourAdapter);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 5, LinearLayoutManager.VERTICAL, false);
+        hourWeatherRv.setLayoutManager(gridLayoutManager);
+        hourWeatherRv.getAdapter().notifyDataSetChanged();
 
 
+        List<WeatherDetailItem> weatherDetailItems = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            weatherDetailItems.add(new WeatherDetailItem());
+        }
+        weatherDetailRv.setAdapter(new WeatherDetailAdapter(getActivity(), R.layout.item_weatherdetail_info, weatherDetailItems));
+        weatherDetailRv.setLayoutManager(new LinearLayoutManager(getActivity()));
+    }
 
 
-
-
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden) {
+            hourWeatherRv.getAdapter().notifyDataSetChanged();
+        }
     }
 
     @Override

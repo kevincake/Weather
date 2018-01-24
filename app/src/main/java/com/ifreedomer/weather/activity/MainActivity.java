@@ -14,7 +14,9 @@ import android.widget.TextView;
 import com.ifreedomer.weather.R;
 import com.ifreedomer.weather.adapter.ViewPagerFragmentAdapter;
 import com.ifreedomer.weather.bean.TabInfo;
+import com.ifreedomer.weather.fragment.FavoriteFragment;
 import com.ifreedomer.weather.fragment.TodayFragment;
+import com.ifreedomer.weather.fragment.WeeklyFragment;
 import com.ifreedomer.weather.present.MainPresent;
 import com.ifreedomer.weather.widget.IconTableView;
 
@@ -76,8 +78,8 @@ public class MainActivity extends BaseActivity {
         mTabList.add(new TabInfo(R.drawable.tab_today_selector, getString(R.string.favorite)));
 
         mFragmentList.add(new TodayFragment());
-        mFragmentList.add(new TodayFragment());
-        mFragmentList.add(new TodayFragment());
+        mFragmentList.add(new WeeklyFragment());
+        mFragmentList.add(new FavoriteFragment());
 
         // init view pager
         ViewPagerFragmentAdapter pagerAdapter = new ViewPagerFragmentAdapter(getSupportFragmentManager(), mFragmentList);
